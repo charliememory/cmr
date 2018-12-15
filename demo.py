@@ -12,6 +12,11 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
+import matplotlib
+import matplotlib.pyplot as plt
+matplotlib.use('agg')
+plt.switch_backend('agg')
+
 from absl import flags, app
 import numpy as np
 import skimage.io as io
@@ -67,6 +72,7 @@ def visualize(img, outputs, renderer):
 
     img = np.transpose(img, (1, 2, 0))
     import matplotlib.pyplot as plt
+    plt.figure()
     plt.ion()
     plt.figure(1)
     plt.clf()
@@ -94,6 +100,7 @@ def visualize(img, outputs, renderer):
     plt.axis('off')
     plt.draw()
     plt.show()
+    plt.savefig('cmr/demo_output.png')
     import ipdb
     ipdb.set_trace()
 
