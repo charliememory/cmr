@@ -1,0 +1,15 @@
+pip install chainer visdom meshzoo pydot absl-py ipdb
+
+## Install Neural Mesh Renderer and Perceptual loss
+## edit external/install_exteral.sh, 
+git clone https://github.com/charliememory/neural_renderer.git
+
+## In neural_renderer/setup.py, change 'cupy' to 'cupy-cuda92' or other versions in http://docs-cupy.chainer.org/en/
+
+
+cd external;
+bash install_external.sh
+
+## Run the demo
+cd cmr/..
+python -m cmr.demo --name bird_net --num_train_epoch 500 --img_path cmr/demo_data/img1.jpg
